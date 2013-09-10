@@ -1,14 +1,13 @@
-name := "SlideShare4S"
+name := "SlideShare4J"
 
 organization := "com.taroid"
 
-version := "0.0.0"
-
-scalaVersion := "2.10.2"
+version := "0.0.1"
 
 javacOptions ++= Seq("-source", "1.6", "-target", "1.6")
 
 libraryDependencies ++= Seq(
-    "org.specs2" %% "specs2" % "2.1.1" % "test",
-    "org.mockito" % "mockito-core" % "1.9.5" % "test"
+    "junit" % "junit" % "4.11" % "test",
+    "org.mockito" % "mockito-core" % "1.9.5" % "test",
+    "com.novocode" % "junit-interface" % "0.8" % "test->default"
 )
