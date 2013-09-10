@@ -12,11 +12,23 @@ import java.util.List;
 
     public SlideShareImpl(final String apiKey, final String sharedSecret, final SlideshowConverter converter) {
         super(apiKey, sharedSecret);
+
+        if(converter == null) {
+            throw new NullPointerException("converter must not be null.");
+        }
+
         this.slideshowConverter = converter;
     }
 
     @Override
     public List<Slideshow> searchSlideshows(final Query query, final Paging paging) {
+        if(query == null) {
+            throw new NullPointerException("query must not be null.");
+        }
+        if(paging == null) {
+            throw new NullPointerException("paging must not be null.");
+        }
+
         final URL url;
         try {
             url = new URLBuilder(URLs.SEARCH)

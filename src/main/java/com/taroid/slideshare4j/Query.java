@@ -13,6 +13,19 @@ public final class Query {
     private final SortOrder sortOrder;
 
     public Query(final String words, final String language, final SortOrder sortOrder) {
+        if(words == null) {
+            throw new NullPointerException("words must not be null.");
+        }
+        if(words.length() == 0) {
+            throw new IllegalArgumentException("");
+        }
+        if(language == null) {
+            throw new NullPointerException("language must not be null.");
+        }
+        if(sortOrder == null) {
+            throw new NullPointerException("sortOrder must not be null.");
+        }
+
         this.words = words;
         this.language = language;
         this.sortOrder = sortOrder;
