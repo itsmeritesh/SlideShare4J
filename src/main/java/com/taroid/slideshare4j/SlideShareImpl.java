@@ -10,6 +10,12 @@ import java.util.List;
 
     private final SlideshowConverter slideshowConverter;
 
+    /**
+     * @param apiKey API Key
+     * @param sharedSecret Shared Secret
+     * @param converter InputStreamからSlideshowを生成するオブジェクト
+     * @throws java.lang.NullPointerException 引数に{@code null}が指定された場合
+     */
     public SlideShareImpl(final String apiKey, final String sharedSecret, final SlideshowConverter converter) {
         super(apiKey, sharedSecret);
 

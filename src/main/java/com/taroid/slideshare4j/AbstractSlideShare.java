@@ -29,19 +29,35 @@ public abstract class AbstractSlideShare implements SlideShare {
         this.sharedSecret = sharedSecret;
     }
 
-    protected String getAPIKey() {
+    /**
+     * API KEYを返します。
+     * @return API KEY
+     */
+    protected final String getAPIKey() {
         return apiKey;
     }
 
-    protected String getSharedSecret() {
+    /**
+     * Shared Secretを返します。
+     * @return Shared Secret
+     */
+    protected final String getSharedSecret() {
         return sharedSecret;
     }
 
-    protected long getCurrentTimeSeconds() {
+    /**
+     * 現在の時刻を秒単位で返します。
+     * @return 現在の時刻(秒単位)
+     */
+    protected final long getCurrentTimeSeconds() {
         return System.currentTimeMillis() / 1000;
     }
 
-    protected String getHash() {
+    /**
+     * SlideShare APIに必要なハッシュ値を求めて返します。
+     * @return SlideShare APIに必要なハッシュ値
+     */
+    protected final String getHash() {
         return toSha1Hex(getSharedSecret() + getCurrentTimeSeconds());
     }
 
