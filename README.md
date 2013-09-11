@@ -1,6 +1,7 @@
 # SlideShare4J
 
-SlideShare4J is a library for **Java** to use **SlideShare API**.
+SlideShare4J is a Java version of [SlideShare4S](https://github.com/ntaro/SlideShare4S),
+i.e. a library for Java to use SlideShare API.
 
 ## Sample
 
