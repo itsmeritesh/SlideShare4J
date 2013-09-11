@@ -18,10 +18,10 @@ public abstract class AbstractSlideShare implements SlideShare {
      * @throws java.lang.NullPointerException 引数が{@code null}の場合
      */
     public AbstractSlideShare(final String apiKey, final String sharedSecret) {
-        if(apiKey == null) {
+        if (apiKey == null) {
             throw new NullPointerException("apiKey must not be null.");
         }
-        if(sharedSecret == null) {
+        if (sharedSecret == null) {
             throw new NullPointerException("sharedSecret must not be null.");
         }
 
@@ -31,6 +31,7 @@ public abstract class AbstractSlideShare implements SlideShare {
 
     /**
      * API KEYを返します。
+     *
      * @return API KEY
      */
     protected final String getAPIKey() {
@@ -39,6 +40,7 @@ public abstract class AbstractSlideShare implements SlideShare {
 
     /**
      * Shared Secretを返します。
+     *
      * @return Shared Secret
      */
     protected final String getSharedSecret() {
@@ -47,6 +49,7 @@ public abstract class AbstractSlideShare implements SlideShare {
 
     /**
      * 現在の時刻を秒単位で返します。
+     *
      * @return 現在の時刻(秒単位)
      */
     protected final long getCurrentTimeSeconds() {
@@ -55,6 +58,7 @@ public abstract class AbstractSlideShare implements SlideShare {
 
     /**
      * SlideShare APIに必要なハッシュ値を求めて返します。
+     *
      * @return SlideShare APIに必要なハッシュ値
      */
     protected final String getHash() {
@@ -72,7 +76,7 @@ public abstract class AbstractSlideShare implements SlideShare {
         md.update(text.getBytes());
 
         final StringBuilder builder = new StringBuilder();
-        for(byte b: md.digest()) {
+        for (byte b : md.digest()) {
             builder.append(String.format("%02x", b));
         }
 

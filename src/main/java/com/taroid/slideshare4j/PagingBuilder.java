@@ -14,13 +14,14 @@ public final class PagingBuilder {
         return new Paging(itemsPerPage, page);
     }
 
-    public void clear() {
+    public PagingBuilder clear() {
         itemsPerPage = DEFAULT_ITEMS_PER_PAGE;
         page = DEFAULT_PAGE;
+        return this;
     }
 
-    public PagingBuilder setItemsPerPage(int itemsPerPage) {
-        if(itemsPerPage <= 0 || 100 < itemsPerPage) {
+    public PagingBuilder setItemsPerPage(final int itemsPerPage) {
+        if (itemsPerPage <= 0 || 100 < itemsPerPage) {
             throw new IllegalArgumentException("itemsPerPage must be in 1 to 100.");
         }
 
@@ -28,8 +29,8 @@ public final class PagingBuilder {
         return this;
     }
 
-    public PagingBuilder setPage(int page) {
-        if(page <= 0) {
+    public PagingBuilder setPage(final int page) {
+        if (page <= 0) {
             throw new IllegalArgumentException("page must be greater than zero.");
         }
 

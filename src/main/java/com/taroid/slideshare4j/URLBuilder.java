@@ -20,10 +20,10 @@ import java.util.Map;
     }
 
     public URLBuilder putParam(final String key, final Object value) {
-        if(key == null) {
+        if (key == null) {
             throw new NullPointerException("key must not be null.");
         }
-        if(value == null) {
+        if (value == null) {
             throw new NullPointerException("value must not be null.");
         }
 
@@ -36,14 +36,14 @@ import java.util.Map;
     }
 
     private String createURLString() {
-        if(params.isEmpty()) {
+        if (params.isEmpty()) {
             return baseURL;
         }
 
         final StringBuilder builder = new StringBuilder(baseURL).append('?');
 
 
-        for(String key: params.keySet()) {
+        for (String key : params.keySet()) {
             builder.append(key).append('=').append(params.get(key)).append('&');
         }
 

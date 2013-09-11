@@ -9,7 +9,7 @@ public class QueryBuilder {
     private SortOrder sortOrder = Query.DEFAULT_SORT_ORDER;
 
     public Query create() {
-        if(words == null) {
+        if (words == null) {
             throw new IllegalStateException("please call a method \"setWords\".");
         }
 
@@ -24,7 +24,7 @@ public class QueryBuilder {
     }
 
     public QueryBuilder setWords(final String words) {
-        if(words == null) {
+        if (words == null) {
             throw new NullPointerException("words must not be null.");
         }
 
@@ -33,7 +33,7 @@ public class QueryBuilder {
     }
 
     public QueryBuilder setLanguage(final String language) {
-        if(language == null) {
+        if (language == null) {
             throw new NullPointerException("language must not be null.");
         }
 
@@ -42,7 +42,7 @@ public class QueryBuilder {
     }
 
     public QueryBuilder setSortOrder(final SortOrder sortOrder) {
-        if(sortOrder == null) {
+        if (sortOrder == null) {
             throw new NullPointerException("sortOrder must not be null.");
         }
 

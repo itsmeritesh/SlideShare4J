@@ -7,6 +7,7 @@ public interface SlideshowConverter {
 
     /**
      * 指定されたInputStreamからスライド情報を取得し、@{link Slideshow}へ変換しリストとして返します。
+     *
      * @param inputStream
      * @return
      */

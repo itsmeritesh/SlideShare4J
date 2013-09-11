@@ -54,6 +54,7 @@ public final class Slideshow {
 
     /**
      * スライドIDを返します。
+     *
      * @return スライドID
      */
     public long getID() {
@@ -62,6 +63,7 @@ public final class Slideshow {
 
     /**
      * スライドのタイトルを返します。
+     *
      * @return タイトル
      */
     public String getTitle() {
@@ -70,6 +72,7 @@ public final class Slideshow {
 
     /**
      * スライドを所有しているユーザ名を返します。
+     *
      * @return ユーザ名
      */
     public String getUsername() {
@@ -78,6 +81,7 @@ public final class Slideshow {
 
     /**
      * スライドの説明文を返します。
+     *
      * @return 説明文
      */
     public String getDescription() {
@@ -86,6 +90,7 @@ public final class Slideshow {
 
     /**
      * スライドの掲載URLを返します。
+     *
      * @return 掲載URL
      */
     public String getURL() {
@@ -94,6 +99,7 @@ public final class Slideshow {
 
     /**
      * スライドのサムネイル画像のURLを返します。
+     *
      * @return サムネイル画像のURL
      */
     public String getThumbnailURL() {
@@ -102,6 +108,7 @@ public final class Slideshow {
 
     /**
      * スライドの作成日を返します。
+     *
      * @return 作成日
      */
     public Date getCreated() {
@@ -110,6 +117,7 @@ public final class Slideshow {
 
     /**
      * スライドの更新日を返します。
+     *
      * @return 更新日
      */
     public Date getUpdated() {
@@ -118,6 +126,7 @@ public final class Slideshow {
 
     /**
      * スライドの言語を返します。
+     *
      * @return 言語
      */
     public String getLanguage() {
@@ -126,6 +135,7 @@ public final class Slideshow {
 
     /**
      * スライドの埋め込み用HTMLタグを返します。
+     *
      * @return 埋め込み用HTMLタグ
      */
     public String getEmbed() {

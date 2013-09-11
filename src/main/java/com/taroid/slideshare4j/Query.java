@@ -17,23 +17,24 @@ public final class Query {
 
     /**
      * 指定された値を持ったクエリを生成します。
-     * @param words 検索キーワード
-     * @param language 検索対象言語
+     *
+     * @param words     検索キーワード
+     * @param language  検索対象言語
      * @param sortOrder ソート順
-     * @throws java.lang.NullPointerException 引数に{@code null}が指定された場合
+     * @throws java.lang.NullPointerException     引数に{@code null}が指定された場合
      * @throws java.lang.IllegalArgumentException 引数{@code words}の文字数が{@literal 0}の場合
      */
     public Query(final String words, final String language, final SortOrder sortOrder) {
-        if(words == null) {
+        if (words == null) {
             throw new NullPointerException("words must not be null.");
         }
-        if(words.length() == 0) {
+        if (words.length() == 0) {
             throw new IllegalArgumentException("");
         }
-        if(language == null) {
+        if (language == null) {
             throw new NullPointerException("language must not be null.");
         }
-        if(sortOrder == null) {
+        if (sortOrder == null) {
             throw new NullPointerException("sortOrder must not be null.");
         }
 
@@ -46,7 +47,7 @@ public final class Query {
      * 指定された値を持ったクエリを生成します。<br>
      * ソート順にはデフォルトの値({@link Query#DEFAULT_SORT_ORDER}})が割り当てられます。
      *
-     * @param words 検索キーワード
+     * @param words    検索キーワード
      * @param language 検索対象言語
      */
     public Query(final String words, final String language) {
@@ -57,7 +58,7 @@ public final class Query {
      * 指定された値を持ったクエリを生成します。<br>
      * 検索対象言語にはデフォルトの値({@link Query#DEFAULT_LANG})が割り当てられます。
      *
-     * @param words 検索キーワード
+     * @param words     検索キーワード
      * @param sortOrder 検索対象言語
      */
     public Query(final String words, final SortOrder sortOrder) {
@@ -77,6 +78,7 @@ public final class Query {
 
     /**
      * 検索キーワードを返します。
+     *
      * @return 検索キーワード
      */
     public String getWords() {
@@ -85,6 +87,7 @@ public final class Query {
 
     /**
      * 検索対象言語を返します。
+     *
      * @return 検索対象言語
      */
     public String getLanguage() {
@@ -93,6 +96,7 @@ public final class Query {
 
     /**
      * ソート順を返します。
+     *
      * @return ソート順
      */
     public SortOrder getSortOrder() {

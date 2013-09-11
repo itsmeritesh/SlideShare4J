@@ -11,15 +11,15 @@ import java.util.List;
     private final SlideshowConverter slideshowConverter;
 
     /**
-     * @param apiKey API Key
+     * @param apiKey       API Key
      * @param sharedSecret Shared Secret
-     * @param converter InputStreamからSlideshowを生成するオブジェクト
+     * @param converter    InputStreamからSlideshowを生成するオブジェクト
      * @throws java.lang.NullPointerException 引数に{@code null}が指定された場合
      */
     public SlideShareImpl(final String apiKey, final String sharedSecret, final SlideshowConverter converter) {
         super(apiKey, sharedSecret);
 
-        if(converter == null) {
+        if (converter == null) {
             throw new NullPointerException("converter must not be null.");
         }
 
@@ -28,10 +28,10 @@ import java.util.List;
 
     @Override
     public List<Slideshow> searchSlideshows(final Query query, final Paging paging) {
-        if(query == null) {
+        if (query == null) {
             throw new NullPointerException("query must not be null.");
         }
-        if(paging == null) {
+        if (paging == null) {
             throw new NullPointerException("paging must not be null.");
         }
 

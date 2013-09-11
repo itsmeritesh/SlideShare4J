@@ -18,7 +18,7 @@ public final class Paging {
         if(itemsPerPage <= 0 || 100 < itemsPerPage) {
             throw new IllegalArgumentException("itemsPerPage must be in 1 to 100.");
         }
-        if(page <= 0) {
+        if (page <= 0) {
             throw new IllegalArgumentException("page must be greater than zero.");
         }
 
