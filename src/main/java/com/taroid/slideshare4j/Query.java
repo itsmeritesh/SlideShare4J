@@ -9,11 +9,15 @@ public final class Query {
 
     public static final SortOrder DEFAULT_SORT_ORDER = SortOrder.RELEVANCE;
 
+    public static final UploadDate DEFAULT_UPLOAD_DATE = UploadDate.ANY;
+
     private final String words;
 
     private final String language;
 
     private final SortOrder sortOrder;
+
+    private final UploadDate uploadDate;
 
     /**
      * 指定された値を持ったクエリを生成します。
@@ -24,7 +28,7 @@ public final class Query {
      * @throws java.lang.NullPointerException     引数に{@code null}が指定された場合
      * @throws java.lang.IllegalArgumentException 引数{@code words}の文字数が{@literal 0}の場合
      */
-    public Query(final String words, final String language, final SortOrder sortOrder) {
+    public Query(final String words, final String language, final SortOrder sortOrder, final UploadDate uploadDate) {
         if (words == null) {
             throw new NullPointerException("words must not be null.");
         }
@@ -37,11 +41,16 @@ public final class Query {
         if (sortOrder == null) {
             throw new NullPointerException("sortOrder must not be null.");
         }
+        if(uploadDate == null) {
+            throw new NullPointerException("Upload date cannot be null");
+        }
 
         this.words = words;
         this.language = language;
         this.sortOrder = sortOrder;
+        this.uploadDate = uploadDate;
     }
+
 
     /**
      * 指定された値を持ったクエリを生成します。<br>
@@ -51,7 +60,7 @@ public final class Query {
      * @param language 検索対象言語
      */
     public Query(final String words, final String language) {
-        this(words, language, DEFAULT_SORT_ORDER);
+        this(words, language, DEFAULT_SORT_ORDER, DEFAULT_UPLOAD_DATE);
     }
 
     /**
@@ -62,7 +71,7 @@ public final class Query {
      * @param sortOrder 検索対象言語
      */
     public Query(final String words, final SortOrder sortOrder) {
-        this(words, DEFAULT_LANG, sortOrder);
+        this(words, DEFAULT_LANG, sortOrder, DEFAULT_UPLOAD_DATE);
     }
 
     /**
@@ -73,7 +82,7 @@ public final class Query {
      * @param words
      */
     public Query(final String words) {
-        this(words, DEFAULT_LANG, DEFAULT_SORT_ORDER);
+        this(words, DEFAULT_LANG, DEFAULT_SORT_ORDER, DEFAULT_UPLOAD_DATE);
     }
 
     /**
@@ -101,5 +110,10 @@ public final class Query {
      */
     public SortOrder getSortOrder() {
         return sortOrder;
+    }
+
+
+    public UploadDate getUploadDate() {
+        return uploadDate;
     }
 }

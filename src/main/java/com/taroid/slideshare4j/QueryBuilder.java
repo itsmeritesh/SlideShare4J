@@ -7,13 +7,14 @@ public class QueryBuilder {
     private String language = Query.DEFAULT_LANG;
 
     private SortOrder sortOrder = Query.DEFAULT_SORT_ORDER;
+    private UploadDate uploadDate;
 
     public Query create() {
         if (words == null) {
             throw new IllegalStateException("please call a method \"setWords\".");
         }
 
-        return new Query(words, language, sortOrder);
+        return new Query(words, language, sortOrder, uploadDate);
     }
 
     public QueryBuilder clear() {
@@ -47,6 +48,14 @@ public class QueryBuilder {
         }
 
         this.sortOrder = sortOrder;
+        return this;
+    }
+
+    public QueryBuilder setUploadDate(final UploadDate uploadDate){
+        if(uploadDate == null) {
+            throw new NullPointerException("Upload date should not be null");
+        }
+        this.uploadDate = uploadDate;
         return this;
     }
 }

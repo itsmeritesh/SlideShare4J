@@ -44,6 +44,7 @@ import java.util.List;
                     .putParam("q", query.getWords())
                     .putParam("lang", query.getLanguage())
                     .putParam("sort", query.getSortOrder())
+                    .putParam("upload_date", query.getUploadDate())
                     .putParam("page", paging.getPage())
                     .putParam("items_per_page", paging.getItemsPerPage())
                     .create();
