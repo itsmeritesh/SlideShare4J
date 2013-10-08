@@ -34,6 +34,7 @@ public class SlideshowConverterImplTest {
                 "  <Updated>Thu Jan 01 01:00:00 +0900 2013</Updated>" +
                 "  <Language>ff</Language>" +
                 "  <Embed>ggg</Embed>" +
+                "  <Format>pdf</Format>" +
                 " </Slideshow>" +
                 "</Slideshows>";
 
@@ -55,6 +56,7 @@ public class SlideshowConverterImplTest {
         assertThat(slideshow.getThumbnailURL(), is("eee"));
         assertThat(slideshow.getLanguage(), is("ff"));
         assertThat(slideshow.getEmbed(), is("ggg"));
+        assertThat(slideshow.getFormat(), is("pdf"));
 
         final DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy");
         assertThat(slideshow.getCreated(), is(dateFormat.parse("Thu Jan 01 00:00:00 +0900 2013")));

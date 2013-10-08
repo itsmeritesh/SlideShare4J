@@ -1,0 +1,98 @@
+import org.apache.ivy.plugins.resolver.FileSystemResolver
+import org.apache.ivy.core.settings.IvySettings
+import org.apache.tools.ant.taskdefs.Jar
+
+apply plugin: 'application'
+
+
+sourceCompatibility = 1.7
+
+group = "muhive"
+version = "SNAPSHOT"
+
+project.ext {
+    snapshots = "${System.properties['user.home']}/.slideshare4j"
+    orderEntryType = 'module-library'
+    gradleLibraryId = 'Gradle Libraries'
+}
+
+
+
+configurations {
+    compile.visible = true
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+
+dependencies {
+
+    compile 'junit:junit:4.+'
+    compile 'org.mockito:mockito-core:1.9.5'
+    compile 'org.powermock:powermock-api-mockito:1.5.1'
+    compile 'org.powermock:powermock-module-junit4:1.5.1'
+    compile 'com.novocode:junit-interface:0.10-M2'
+
+}
+
+
+private def addNewOrderEntry(newModuleRootManager) {
+    def newOrderEntry = newModuleRootManager.appendNode('orderEntry', [type: project.orderEntryType])
+    def newGradleLibrary = newOrderEntry.appendNode('library', [name: project.gradleLibraryId])
+    def classesNode = newGradleLibrary.appendNode('CLASSES')
+
+    def path = configurations.compile.asPath
+    def jars = path.split(':')
+    jars = Arrays.asList(jars)
+
+    jars.each { jar ->
+
+        classesNode.appendNode('root', [url: "jar://$jar!/"])
+    }
+}
+
+private def removeOldOrderEntry(newModuleRootManager) {
+    def oldOrderEntry = newModuleRootManager.orderEntry.find {
+        (it.'@type' == project.orderEntryType) && (it.library[0].'@name' == project.gradleLibraryId)
+    }
+    if (oldOrderEntry) {
+        newModuleRootManager.remove(oldOrderEntry)
+    }
+}
+
+
+
+task idea << {
+
+    // change this to the name of your module file
+    def moduleFileName = "SlideShare4J.iml"
+    def root = new XmlParser().parse(moduleFileName)
+    def newModuleRootManager = root.component.find {it.'@name' == 'NewModuleRootManager'}
+
+    // if there is already a module library in place we should remove it
+    removeOldOrderEntry(newModuleRootManager)
+
+    // add the new module library with our current gradle dependencies
+    addNewOrderEntry(newModuleRootManager)
+
+    // output the .iml XML
+    def writer = new StringWriter()
+    new XmlNodePrinter(new PrintWriter(writer)).print(root)
+    def result = writer.toString()
+    print result
+
+    // overwrite our old .iml file
+    def moduleFile = new File(moduleFileName)
+    moduleFile.text = result
+}
+

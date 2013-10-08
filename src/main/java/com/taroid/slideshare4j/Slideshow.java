@@ -27,6 +27,8 @@ public final class Slideshow {
 
     private final String embed;
 
+    private final String format;
+
     // SlideShare4J使用者には直接newさせない
     /*package*/ Slideshow(
             final long id,
@@ -38,8 +40,8 @@ public final class Slideshow {
             final Date created,
             final Date updated,
             final String language,
-            final String embed
-    ) {
+            final String embed,
+            String format) {
         this.id = id;
         this.title = title;
         this.username = username;
@@ -50,6 +52,7 @@ public final class Slideshow {
         this.updated = updated;
         this.language = language;
         this.embed = embed;
+        this.format = format;
     }
 
     /**
@@ -141,4 +144,13 @@ public final class Slideshow {
     public String getEmbed() {
         return embed;
     }
+
+    /**
+     * Adding the format field in the slidshow object
+     * @return
+     */
+    public String getFormat() {
+        return format;
+    }
+
 }

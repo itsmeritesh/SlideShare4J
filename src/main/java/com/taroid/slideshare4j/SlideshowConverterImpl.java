@@ -55,6 +55,8 @@ import java.util.List;
         private static final String TAG_EMBED = "Embed";
         private static final String TAG_TAGS = "Tags";
         private static final String TAG_TAG = "Tag";
+        private static final String TAG_FORMAT = "Format";
+
 
         private final List<Slideshow> slideshows;
 
@@ -98,6 +100,7 @@ import java.util.List;
             else if (qName.equals(TAG_UPDATED)) builder.setUpdated(toDate(textBuilder.toString()));
             else if (qName.equals(TAG_LANG)) builder.setLanguage(textBuilder.toString());
             else if (qName.equals(TAG_EMBED)) builder.setEmbed(textBuilder.toString());
+            else if (qName.equals(TAG_FORMAT)) builder.setFormat(textBuilder.toString());
             else if (qName.equals(TAG_SLIDESHOW)) {
                 slideshows.add(builder.create());
                 builder.clear();

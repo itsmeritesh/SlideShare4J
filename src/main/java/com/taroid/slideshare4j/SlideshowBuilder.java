@@ -24,13 +24,16 @@ public final class SlideshowBuilder {
 
     private String embed;
 
+
+    private String format;
+
     public Slideshow create() {
         if (id == null || title == null || username == null || description == null || url == null
                 || thumbnailURL == null || created == null || updated == null || language == null || embed == null) {
             throw new IllegalStateException("please call each methods \"set*\".");
         }
 
-        return new Slideshow(id, title, username, description, url, thumbnailURL, created, updated, language, embed);
+        return new Slideshow(id, title, username, description, url, thumbnailURL, created, updated, language, embed, format);
     }
 
     public SlideshowBuilder clear() {
@@ -131,5 +134,9 @@ public final class SlideshowBuilder {
 
         this.embed = embed;
         return this;
+    }
+
+    public void setFormat(String format) {
+        this.format = format;
     }
 }
