@@ -30,8 +30,8 @@ public class SlideshowConverterImplTest {
                 "  <Description>ccc</Description>" +
                 "  <URL>ddd</URL>" +
                 "  <ThumbnailURL>eee</ThumbnailURL>" +
-                "  <Created>Thu Jan 01 00:00:00 +0900 2013</Created>" +
-                "  <Updated>Thu Jan 01 01:00:00 +0900 2013</Updated>" +
+                "  <Created>2007-03-27 03:35:39 UTC</Created>" +
+                "  <Updated>2008-11-11 10:30:18 UTC</Updated>" +
                 "  <Language>ff</Language>" +
                 "  <Embed>ggg</Embed>" +
                 "  <Format>pdf</Format>" +
@@ -58,8 +58,8 @@ public class SlideshowConverterImplTest {
         assertThat(slideshow.getEmbed(), is("ggg"));
         assertThat(slideshow.getFormat(), is("pdf"));
 
-        final DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy");
-        assertThat(slideshow.getCreated(), is(dateFormat.parse("Thu Jan 01 00:00:00 +0900 2013")));
-        assertThat(slideshow.getUpdated(), is(dateFormat.parse("Thu Jan 01 01:00:00 +0900 2013")));
+        final DateFormat dateFormat = new SimpleDateFormat("MMM dd HH:mm:ss Z yyyy");
+        assertThat(slideshow.getCreated(), is(dateFormat.parse("Mar 27 03:35:39 UTC 2007")));
+        assertThat(slideshow.getUpdated(), is(dateFormat.parse("Nov 11 10:30:18 UTC 2008")));
     }
 }

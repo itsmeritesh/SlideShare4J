@@ -62,7 +62,9 @@ import java.util.List;
 
         private final SlideshowBuilder builder = new SlideshowBuilder();
 
-        private final DateFormat dateFormat = new SimpleDateFormat("EEE MMM dd HH:mm:ss Z yyyy");
+        //Slideshare has changed their date format to something else now
+        //2010-07-09 09:55:00 UTC
+        private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
 
         private final StringBuilder textBuilder = new StringBuilder();
 
